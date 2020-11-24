@@ -1,4 +1,6 @@
-# Functions contained in here will help with the modeling process
+"""
+Functions contained in here will help with the modeling process
+"""
 
 def pitcher_stats(name ,df):
     '''
