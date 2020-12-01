@@ -26,7 +26,7 @@ def batter_stats(name ,df):
 
     
 ### Cleaning Functions ###
-def renaming_columns(mlb):
+def renaming_fielders(mlb):
     mlb.rename(columns={'player_name':'pitcher_name'}, inplace=True) # Rename pitcher
     mlb.rename(columns={'fielder_2':'Catcher'}, inplace=True) # rename Catcher
     # Rename other fielders
@@ -44,7 +44,7 @@ def renaming_columns(mlb):
 def dropping_columns(mlb):
     mlb.drop(columns=['spin_dir', 'spin_rate_deprecated',
        'break_angle_deprecated', 'break_length_deprecated','tfs_deprecated', 'tfs_zulu_deprecated',
-        'umpire', 'sv_id', 'pitcher.1', 'fielder_2.1'], inplace=True)
+       'umpire', 'sv_id', 'pitcher.1', 'fielder_2.1'], inplace=True)
 
     return mlb
 
