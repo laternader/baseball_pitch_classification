@@ -38,7 +38,7 @@ def renaming_fielders(mlb):
                         'fielder_8':'CenterField',
                         'fielder_9':'RightField'}, inplace=True)
     mlb.rename(columns={'batter':'batter_id',
-                       'pitcher':'pitcher_id'})
+                       'pitcher':'pitcher_id'}, inplace=True)
     return mlb
 
 def dropping_columns(mlb):
