@@ -105,3 +105,5 @@ def strike_attempt_column(df):
              'missed_bunt':'strike',
              'pitchout':'out',
              'bunt_foul_tip':'strike'})
+    
+    return df
