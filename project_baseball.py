@@ -79,7 +79,7 @@ def cleaning(df):
                            'FS':'FS',
                            'KN':'KN',
                            'FO':'FO'})
-    df = df[df['release_speed'].notnull()]
+#     df = df[df['release_speed'].notnull()]
     
     df['pitch_type'].fillna('U', inplace=True)
     df['pitch_name'].fillna('Unknown', inplace=True)
@@ -105,6 +105,21 @@ def strike_attempt_column(df):
              'hit_by_pitch':'ob',
              'missed_bunt':'strike',
              'pitchout':'out',
-             'bunt_foul_tip':'strike'})
+             'bunt_foul_tip':'strike'}).copy()
+    
+    return df
+
+### These functions are a pair of mangoes ###
+def batter_name(des):
+    try:
+        name = ' '.join(des.split(' ',2)[:2])
+        return name
+    except:
+        return np.nan
+    
+def fill_in_batters(df):
+    
+    df['batter_name'] = df['des'].map(batter_name)
+    df['batter_name'].ffill(axis=0, inplace=True) 
     
     return df
