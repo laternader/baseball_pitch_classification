@@ -1,8 +1,9 @@
 """
 Functions contained in here will help with the modeling process
 """
-# import numpy as np
-# import pandas as pd
+import numpy as np
+import pandas as pd
+
 features = ['game_date','pitch_type','Pitcher_name', 'batter_id','pitcher_id','release_speed', 'release_pos_x', 'release_pos_z', 'stand', 'p_throws', 'balls', 'strikes',
             'pfx_x', 'pfx_z', 'plate_x', 'plate_z', 'on_3b', 'on_2b', 'on_1b', 'inning', 'inning_topbot',
             'effective_speed', 'release_spin_rate', 'release_extension','Catcher','FirstBasemen', 'SecondBasemen', 'ThirdBasemen', 'ShortStop',
