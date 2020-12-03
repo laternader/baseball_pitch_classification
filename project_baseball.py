@@ -123,3 +123,8 @@ def fill_in_batters(df):
     df['batter_name'].ffill(axis=0, inplace=True) 
     
     return df
+
+def the_count(df):
+    
+    df['count'] = df['balls'].map(int).map(str) +"-"+ df['strikes'].map(int).map(str)
+    return df
