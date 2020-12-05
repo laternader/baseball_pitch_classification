@@ -123,7 +123,11 @@ def strike_attempt_column(df):
              'hit_by_pitch':'ob',
              'missed_bunt':'strike',
              'pitchout':'out',
-             'bunt_foul_tip':'strike'}).copy()
+             'bunt_foul_tip':'strike',
+             'intent_ball':'ob',
+             'swinging_pitchout':'strike',
+             'foul_pitchout':'strike',
+             'pitchout_hit_into_play_score':'out'}).copy()
     
     return df
 
