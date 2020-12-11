@@ -4,6 +4,6 @@ Cleaning.ipynb
 # Folders
 data/
 ignore/
-assets/
+ignored_pickles/
 __pycache__
 images/
