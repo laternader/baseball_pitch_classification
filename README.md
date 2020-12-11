@@ -63,5 +63,65 @@ The Target Variables:
 ---
 Engineered Features:
 
-Engineered pitch usage by grouping by pitcher name and pitch name. Then took the sum total of thrown pitches by a particular pitcher. The first was the divided by the latter thus creating...
+*This was a way to uniquely identify pitchers without having to dummify their IDs.*
 
+Engineered pitch usage by grouping by pitcher name and pitch name. Then took the sum total of thrown pitches by a particular pitcher. The first was the divided by the latter thus creating:
+
+| Name 	| Definition 	|
+|-	|-	|
+| 2s_usage 	| Frequency of the 2-seam Fastball from 2015-2020 	|
+| 4s_usage 	| Frequency of the 4-seam Fastball from 2015-2020 	|
+| changeup_usage 	| Frequency of the Changeup from 2015-2020 	|
+| curveball_usage 	| Frequency of the Curveball from 2015-2020 	|
+| cutter_usage 	| Frequency of the Cutter from 2015-2020 	|
+| eephus_usage 	| Frequency of the Eephus from 2015-2020 	|
+| fastball_usage 	| Frequency of the Unspecified Fastball from 2015-2020 	|
+| forkball_usage 	| Frequency of the Forkball from 2015-2020 	|
+| ball_usage 	| Frequency of the Intentional Ball from 2015-2020 	|
+| knucklecurve_usage 	| Frequency of the Knuckle Curve from 2015-2020 	|
+| knuckleball_usage 	| Frequency of the Knuckleball from 2015-2020 	|
+| pitchout_usage 	| Frequency of the Pitchout Tactic from 2015-2020 	|
+| screwball_usage 	| Frequency of the Screwball from 2015-2020 	|
+| sinker_usage 	| Frequency of the Sinker from 2015-2020 	|
+| slider_usage 	| Frequency of the Slider from 2015-2020 	|
+| split_usage 	| Frequency of the Split-Finger from 2015-2020 	|
+| unknown_usage 	| Frequency of the Unknown ball from 2015-2020 	|
+
+# EDA
+
+There were many trends that I saw as I looked at all the data. The most intriguing was the aggregate numbers for pitch names with their release speed and release spin rate. 
+
+![Descriptive Stats on Pitches](https://github.com/laternader/baseball_pitch_classification/blob/main/plots/Screenshot%202020-12-10%20224922.png)
+
+Looking at which pitch was considered a ball and strike over the past 6 seasons was intriguing. There were many outliers which explain that umpires did not do a good job making a call or the batter made a really bad decision at swinging on a bad pitch.
+
+![balls v strikes](https://github.com/laternader/baseball_pitch_classification/blob/main/plots/location4.png)
+
+![balls only](https://github.com/laternader/baseball_pitch_classification/blob/main/plots/location5.png)
+
+What's good to know is that strikes were very consistent although it doesn't look like a very straight rectangle. It was very round.
+
+![strikes only](https://github.com/laternader/baseball_pitch_classification/blob/main/plots/location6.png)
+
+Below is the straight trajectory of what a strike and ball is. If given the chance to improve this plot is to show borderline pitches that are classified wrong. That would be a stronger plot. However, this plot will contain "textbook" strikes and balls.
+
+![strike and ball trajectory](https://github.com/laternader/baseball_pitch_classification/blob/main/plots/movement_of_2_pitches_tv.png)
+
+# Results 
+
+After running a random forest on my data, these were the results I achieved:
+
+![results](https://github.com/laternader/baseball_pitch_classification/blob/main/plots/results.png)
+
+My results weren't as accurate as the what the data shows. I was able to surpass the baseline of 45% accuracy. However, that is pretty bad in terms of data analysis. But for sports data, it is impressive since sports has so many random events during a game that it can cause the data to contain too much noise.
+
+We can't fire umpires but we can use this model as a stepping stone to evaluate an umpire's officiating.
+
+## Next Steps
+
+- Consider running a PCA model to determine the most import features to include in the model
+- Explore more tuning parameters
+- Determine the best (tree) model possible and other models 
+- Utilize Google Colab, DataBricks, and AWS to increase the amount of computing power
+- Build a model that accounts for the batter's attributes, weather, the umpires involved in the game, "clutch factors", etc.
+- Start on a micro level and observe a game. Afterwards, batch all strikes and balls into one particular at-bat. Once it can group for the at-bat, then we can try and predict outs. 
